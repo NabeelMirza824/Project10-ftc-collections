@@ -103,4 +103,54 @@ public class InventoryManager {
             System.out.println(p.getName());
         }
     }
+    // --- TREESET — sorted unique brands ---
+    public void displaySortedBrands() {
+        Set<String> sortedBrands = new TreeSet<>(brands);
+        System.out.println("\n=== SORTED BRANDS (TreeSet) ===");
+        for (String brand : sortedBrands) {
+            System.out.println(brand);
+        }
+    }
+
+    // --- TREEMAP — sections sorted by name ---
+    public void displaySortedSections() {
+        Map<String, List<Product>> sortedSections = new TreeMap<>(sections);
+        System.out.println("\n=== SORTED SECTIONS (TreeMap) ===");
+        for (String section : sortedSections.keySet()) {
+            System.out.println(section + ": " + sortedSections.get(section).size() + " products");
+        }
+    }
+
+    // --- LINKEDLIST as List — not just Queue ---
+    public void displayLinkedList() {
+        List<Product> linkedCatalog = new LinkedList<>(catalog);
+        System.out.println("\n=== LINKEDLIST CATALOG ===");
+        System.out.println("First product: " + linkedCatalog.get(0).getName());
+        System.out.println("Last product: " + linkedCatalog.get(linkedCatalog.size() - 1).getName());
+    }
+
+    // --- PRIORITYQUEUE — products sorted by price ---
+    public void displayPriorityQueue() {
+        Queue<Product> priceQueue = new PriorityQueue<>(
+                (a, b) -> Double.compare(a.getPrice(), b.getPrice())
+        );
+        priceQueue.addAll(catalog);
+        System.out.println("\n=== PRIORITY QUEUE (cheapest first) ===");
+        while (!priceQueue.isEmpty()) {
+            System.out.println(priceQueue.poll());
+        }
+    }
+
+    // --- COLLECTIONS UTILITY METHODS ---
+    public void displayCollectionsUtility() {
+        List<String> brandList = new ArrayList<>(brands);
+        System.out.println("\n=== COLLECTIONS UTILITY METHODS ===");
+        System.out.println("Unsorted: " + brandList);
+        Collections.sort(brandList);
+        System.out.println("Sorted: " + brandList);
+        Collections.reverse(brandList);
+        System.out.println("Reversed: " + brandList);
+        System.out.println("Max: " + Collections.max(brandList));
+        System.out.println("Min: " + Collections.min(brandList));
+    }
 }

@@ -59,4 +59,13 @@ public class GenericRepository<T> {
             System.out.println(item);
         }
     }
+    // BOUNDED TYPE — only accepts objects that extend Product
+    public static <T extends Product> void displayProductInfo(T item) {
+        System.out.println("Product: " + item.getName() + " | Brand: " + item.getBrand());
+    }
+
+    // WILDCARD — accepts repository of any type
+    public static void displayRepositorySize(GenericRepository<?> repo) {
+        System.out.println("Repository size: " + repo.size());
+    }
 }

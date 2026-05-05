@@ -71,5 +71,17 @@ public class InventoryApp {
         brandRepo.add("Van Leeuwen");
         brandRepo.add("Graeter's");
         brandRepo.displayAll();
+
+        // --- MISSING COLLECTION TYPES ---
+        manager.displaySortedBrands();
+        manager.displaySortedSections();
+        manager.displayLinkedList();
+        manager.displayPriorityQueue();
+        manager.displayCollectionsUtility();
+
+        // --- BOUNDED TYPE AND WILDCARD ---
+        Product testProduct = new Product("Wildberry", "Jeni's", 12.00, "Viral", false);
+        GenericRepository.displayProductInfo(testProduct);
+        GenericRepository.displayRepositorySize(productRepo);
     }
 }
